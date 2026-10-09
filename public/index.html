@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Run Nika</title>
+  <link rel="icon" type="image/jpeg" href="/icon.jpg">
+  <link rel="apple-touch-icon" href="/icon.jpg">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Metamorphous&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Landscape Warning for Mobile -->
+  <div id="rotate-device-overlay" class="hidden">
+    <div class="rotate-box">
+      <div class="rotate-phone-icon">📱 ➔ 📲</div>
+      <h2>Rotate Your Phone</h2>
+      <p><b>Run Nika</b> is played in <b>Landscape Mode</b>. Please turn your phone sideways!</p>
+    </div>
+  </div>
+
+  <!-- Nika Camera Flash Effect Overlay -->
+  <div id="camera-flash-overlay"></div>
+
+  <!-- Nika Polaroid Snapshot Notification -->
+  <div id="polaroid-container" class="polaroid-hidden">
+    <div class="polaroid-card">
+      <div class="polaroid-photo-frame">
+        <img id="polaroid-victim-img" src="" alt="Victim">
+        <div class="polaroid-stamp">CAPTURED!</div>
+      </div>
+      <div class="polaroid-caption">
+        <span class="polaroid-tagline">📸 Snapped by Nika!</span>
+        <span id="polaroid-victim-name" class="polaroid-name">Victim Name</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game HUD (In-Game Overlay) -->
+  <div id="game-hud" class="hud-hidden">
+    <!-- Top Bar: Status & Sanity -->
+    <div class="hud-top-bar">
+      <div class="hud-sanity-container">
+        <div class="sanity-label">
+          <span class="flame-icon">🕯️</span>
+          <span>SANITY</span>
+          <span id="sanity-num">100%</span>
+        </div>
+        <div class="sanity-bar-bg">
+          <div id="sanity-bar-fill" class="sanity-fill"></div>
+        </div>
+      </div>
+
+      <div class="hud-status-badge" id="hud-status-badge">
+        <span id="hud-role-icon">🏃</span>
+        <span id="hud-role-text">SURVIVE</span>
+      </div>
+
+      <div class="hud-players-alive" id="hud-players-alive">
+        <span class="skull-icon">👥</span>
+        <span id="players-alive-count">7 Alive</span>
+      </div>
+    </div>
+
+    <!-- Stamina Bar (Bottom Center) -->
+    <div class="hud-stamina-container">
+      <div class="stamina-bar-bg">
+        <div id="stamina-bar-fill" class="stamina-fill"></div>
+      </div>
+      <span class="stamina-label">STAMINA</span>
+    </div>
+
+    <!-- Center Alerts (Countdown / Tag Notifications) -->
+    <div id="hud-center-alert" class="hud-alert-hidden">
+      <h1 id="alert-title">MATCH STARTING</h1>
+      <p id="alert-subtitle">Scatter into the rooms!</p>
+    </div>
+
+    <!-- Touch Controls (Mobile Only) -->
+    <div id="touch-controls">
+      <!-- Left Joystick Zone -->
+      <div id="joystick-zone">
+        <div id="joystick-base">
+          <div id="joystick-thumb"></div>
+        </div>
+      </div>
+
+      <!-- Right Action Buttons -->
+      <div id="action-buttons-zone">
+        <!-- Hide / Interact Button (Appears when near wardrobe/drapes) -->
+        <button id="btn-hide" class="action-btn hide-btn hidden-action">
+          <span class="btn-icon">🚪</span>
+          <span class="btn-label">HIDE</span>
+        </button>
+
+        <!-- Hold Breath Button -->
+        <button id="btn-breath" class="action-btn breath-btn">
+          <span class="btn-icon">🤫</span>
+          <span class="btn-label">SILENT</span>
+        </button>
+
+        <!-- Panic Dash Button -->
+        <button id="btn-dash" class="action-btn dash-btn">
+          <span class="btn-icon">💨</span>
+          <span class="btn-label">DASH</span>
+          <div id="dash-cooldown-overlay"></div>
+        </button>
+
+        <!-- Sprint Button -->
+        <button id="btn-sprint" class="action-btn sprint-btn">
+          <span class="btn-icon">👟</span>
+          <span class="btn-label">SPRINT</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Game Canvas -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Lobby Screen Overlay -->
+  <div id="lobby-screen">
+    <div class="lobby-modal">
+      <div class="lobby-header">
+        <div class="lobby-brand-container">
+          <img src="/icon.jpg" alt="Run Nika Icon" class="lobby-logo-icon">
+          <div class="lobby-title-wrap">
+            <span class="manor-crest">⚡ 7-PLAYER MOBILE CHASE ⚡</span>
+            <h1 class="lobby-title">RUN NIKA</h1>
+            <p class="lobby-subtitle">Haunted Manor Elimination Tag</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connection / Host Info Banner -->
+      <div class="lobby-status-bar">
+        <div class="lobby-player-count">
+          <span class="dot-online"></span>
+          <span id="lobby-connected-count">Connected: 1 / 7 Players</span>
+        </div>
+        <div id="host-badge" class="host-badge hidden">👑 YOU ARE THE HOST</div>
+        <div class="phone-qr-toggle">
+          <button id="btn-show-qr" class="qr-btn" type="button">📱 Scan QR to Join</button>
+        </div>
+      </div>
+
+      <!-- QR Code Modal / Drawer -->
+      <div id="qr-modal" class="qr-modal-hidden">
+        <div class="qr-content">
+          <img id="qr-img" src="" alt="Scan QR Code to Join">
+          <p class="qr-url-text" id="qr-url-text">http://192.168.1.158:3000</p>
+          <span class="qr-tip">Point your phone camera here to join!</span>
+        </div>
+      </div>
+
+      <!-- Character Select Carousel / Grid -->
+      <div class="character-select-section">
+        <h3 class="section-heading">SELECT YOUR CHARACTER</h3>
+        <p class="section-subtext">First-come, first-served. Pick your soul:</p>
+
+        <div class="character-grid" id="character-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Lobby Action Footer -->
+      <div class="lobby-footer">
+        <div id="selected-char-preview" class="selected-char-banner">
+          <span>Choose a character above to ready up!</span>
+        </div>
+
+        <button id="btn-start-game" class="start-game-btn" disabled>
+          WAITING FOR HOST TO START
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/audio.js"></script>
+  <script src="/js/characters.js"></script>
+  <script src="/js/map.js"></script>
+  <script src="/js/lighting.js"></script>
+  <script src="/js/controls.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>

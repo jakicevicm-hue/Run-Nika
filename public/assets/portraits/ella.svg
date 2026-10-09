@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="ella-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#381c25"/>
+      <stop offset="100%" stop-color="#190a10"/>
+    </radialGradient>
+    <linearGradient id="ella-skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fee3d0"/>
+      <stop offset="100%" stop-color="#f5c7a4"/>
+    </linearGradient>
+    <linearGradient id="ella-hair" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#302018"/>
+      <stop offset="100%" stop-color="#1a100b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="url(#ella-bg)"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#b56576" stroke-width="2.5" stroke-opacity="0.4"/>
+
+  <!-- Sleek Dark Hair Behind -->
+  <path d="M46 80 C36 120, 40 185, 65 195 L135 195 C160 185, 164 120, 154 80 Z" fill="url(#ella-hair)"/>
+
+  <!-- Burgundy / Chocolate Fitted Crewneck -->
+  <path d="M50 195 C54 154, 76 142, 100 142 C124 142, 146 154, 150 195 Z" fill="#461623"/>
+  <!-- Crewneck collar -->
+  <path d="M84 142 Q100 148 116 142" fill="none" stroke="#320f18" stroke-width="3.5"/>
+
+  <!-- Neck -->
+  <rect x="88" y="116" width="24" height="28" rx="6" fill="url(#ella-skin)"/>
+
+  <!-- Gold Pendant Necklace -->
+  <path d="M88 132 Q100 145 112 132" fill="none" stroke="#ffd700" stroke-width="1.8"/>
+  <circle cx="100" cy="144" r="3" fill="#ffd700"/>
+
+  <!-- Head -->
+  <ellipse cx="100" cy="94" rx="35" ry="42" fill="url(#ella-skin)"/>
+
+  <!-- Eyes - Calm, poised brown eyes -->
+  <ellipse cx="85" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
+  <ellipse cx="115" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
+  <circle cx="86.5" cy="87.5" r="1.5" fill="#ffffff"/>
+  <circle cx="116.5" cy="87.5" r="1.5" fill="#ffffff"/>
+
+  <!-- Poised Eyebrows -->
+  <path d="M78 81 Q85 79 92 82" fill="none" stroke="#2d1c14" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M108 82 Q115 79 122 81" fill="none" stroke="#2d1c14" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <path d="M100 92 L97 100 L103 100" fill="none" stroke="#d99f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Subtle Elegant Lips -->
+  <path d="M92 112 Q100 115 108 112" fill="none" stroke="#c04e5d" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Hair in Front (Center Part, sleek drape) -->
+  <path d="M54 85 C50 48, 72 38, 100 38 C128 38, 150 48, 146 85 C136 68, 118 64, 100 66 C82 64, 64 68, 54 85 Z" fill="url(#ella-hair)"/>
+  <path d="M54 85 C52 115, 62 145, 66 160 C58 138, 52 110, 54 85 Z" fill="url(#ella-hair)"/>
+  <path d="M146 85 C148 115, 138 145, 134 160 C142 138, 148 110, 146 85 Z" fill="url(#ella-hair)"/>
+</svg>
