@@ -1,78 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <radialGradient id="kjara-bg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2d1c3a"/>
-      <stop offset="100%" stop-color="#120b17"/>
-    </radialGradient>
-    <linearGradient id="kjara-skin" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fdf0e6"/>
-      <stop offset="100%" stop-color="#f4d4c1"/>
-    </linearGradient>
-    <linearGradient id="kjara-hair" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#462f22"/>
-      <stop offset="100%" stop-color="#24160f"/>
-    </linearGradient>
-    <pattern id="lace-pattern" width="8" height="8" patternUnits="userSpaceOnUse">
-      <path d="M0 0 L8 8 M8 0 L0 8" stroke="#33333d" stroke-width="0.8"/>
-      <circle cx="4" cy="4" r="1.2" fill="#22222a"/>
-    </pattern>
-  </defs>
-  <!-- Background -->
-  <rect width="200" height="200" rx="20" fill="url(#kjara-bg)"/>
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#9d4edd" stroke-width="2.5" stroke-opacity="0.4"/>
-
-  <!-- Shaggy Wavy Hair Behind -->
-  <path d="M42 85 C30 120, 36 175, 62 195 L138 195 C164 175, 170 120, 158 85 Z" fill="url(#kjara-hair)"/>
-
-  <!-- Black Sweetheart Bustier Underneath -->
-  <path d="M65 175 Q100 190 135 175 L138 195 L62 195 Z" fill="#141418"/>
-  <path d="M72 175 Q85 162 100 172 Q115 162 128 175 Z" fill="#141418"/>
-
-  <!-- Gothic Sheer Black Lace Top -->
-  <path d="M50 195 C54 154, 76 142, 100 142 C124 142, 146 154, 150 195 Z" fill="url(#lace-pattern)"/>
-  <path d="M50 195 C54 154, 76 142, 100 142 C124 142, 146 154, 150 195 Z" fill="rgba(15, 15, 20, 0.45)"/>
-  <!-- Boatneck collar -->
-  <path d="M68 142 Q100 148 132 142" fill="none" stroke="#1c1c22" stroke-width="2.5"/>
-
-  <!-- Neck -->
-  <rect x="88" y="116" width="24" height="28" rx="6" fill="url(#kjara-skin)"/>
-
-  <!-- Head -->
-  <ellipse cx="100" cy="94" rx="35" ry="42" fill="url(#kjara-skin)"/>
-
-  <!-- Eyes - Intense direct gaze -->
-  <ellipse cx="85" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <ellipse cx="115" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <circle cx="86.5" cy="87.5" r="1.5" fill="#ffffff"/>
-  <circle cx="116.5" cy="87.5" r="1.5" fill="#ffffff"/>
-
-  <!-- Eyebrows -->
-  <path d="M78 81 Q85 80 92 82" fill="none" stroke="#2d1c14" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M108 82 Q115 80 122 81" fill="none" stroke="#2d1c14" stroke-width="2.2" stroke-linecap="round"/>
-
-  <!-- Nose -->
-  <path d="M100 92 L97 100 L103 100" fill="none" stroke="#d99f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Lips -->
-  <path d="M93 112 Q100 115 107 112" fill="none" stroke="#ba485c" stroke-width="2.8" stroke-linecap="round"/>
-
-  <!-- Kjara's Signature Amber Round Glasses -->
-  <g>
-    <!-- Left Rim -->
-    <ellipse cx="84" cy="89" rx="14" ry="13" fill="none" stroke="#d4a373" stroke-width="2"/>
-    <ellipse cx="84" cy="89" rx="13" ry="12" fill="rgba(255, 255, 255, 0.08)"/>
-    <!-- Right Rim -->
-    <ellipse cx="116" cy="89" rx="14" ry="13" fill="none" stroke="#d4a373" stroke-width="2"/>
-    <ellipse cx="116" cy="89" rx="13" ry="12" fill="rgba(255, 255, 255, 0.08)"/>
-    <!-- Bridge -->
-    <path d="M98 87 Q100 85 102 87" fill="none" stroke="#d4a373" stroke-width="2"/>
-    <!-- Temple Hinges -->
-    <path d="M70 87 L65 85" stroke="#d4a373" stroke-width="1.8"/>
-    <path d="M130 87 L135 85" stroke="#d4a373" stroke-width="1.8"/>
-  </g>
-
-  <!-- Shaggy Wavy Hair in Front -->
-  <path d="M52 85 C46 45, 72 36, 100 36 C128 36, 154 45, 148 85 C136 65, 118 60, 100 62 C82 60, 64 65, 52 85 Z" fill="url(#kjara-hair)"/>
-  <path d="M48 85 C44 110, 56 135, 62 148 C54 125, 48 105, 48 85 Z" fill="url(#kjara-hair)"/>
-  <path d="M152 85 C156 110, 144 135, 138 148 C146 125, 152 105, 152 85 Z" fill="url(#kjara-hair)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" shape-rendering="crispEdges">
+  <rect width="192" height="192" rx="12" fill="#20132b"/>
+  <rect x="2" y="2" width="188" height="188" rx="10" fill="none" stroke="#9d4edd" stroke-width="3" stroke-opacity="0.6"/>
+  <rect x="36" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="72" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="84" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="96" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="108" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="120" y="6" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="72" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="84" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="96" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="108" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="120" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="132" y="18" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="30" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="30" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="60" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="72" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="84" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="96" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="108" y="30" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="120" y="30" width="12" height="12" fill="#382517"/>
+  <rect x="132" y="30" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="42" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="42" width="12" height="12" fill="#d4af37"/>
+  <rect x="48" y="42" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="60" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="96" y="42" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="108" y="42" width="12" height="12" fill="#d4af37"/>
+  <rect x="120" y="42" width="12" height="12" fill="#d4af37"/>
+  <rect x="132" y="42" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="54" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="54" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="60" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="72" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="84" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="96" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="108" y="54" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="120" y="54" width="12" height="12" fill="#382517"/>
+  <rect x="132" y="54" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="66" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="60" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="72" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="84" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="96" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="108" y="66" width="12" height="12" fill="#fbe2cd"/>
+  <rect x="120" y="66" width="12" height="12" fill="#382517"/>
+  <rect x="36" y="78" width="12" height="12" fill="#382517"/>
+  <rect x="48" y="78" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="78" width="12" height="12" fill="#15151c"/>
+  <rect x="72" y="78" width="12" height="12" fill="#2c2c38"/>
+  <rect x="84" y="78" width="12" height="12" fill="#15151c"/>
+  <rect x="96" y="78" width="12" height="12" fill="#2c2c38"/>
+  <rect x="108" y="78" width="12" height="12" fill="#382517"/>
+  <rect x="120" y="78" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="90" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="90" width="12" height="12" fill="#15151c"/>
+  <rect x="72" y="90" width="12" height="12" fill="#15151c"/>
+  <rect x="84" y="90" width="12" height="12" fill="#15151c"/>
+  <rect x="96" y="90" width="12" height="12" fill="#15151c"/>
+  <rect x="132" y="90" width="12" height="12" fill="#382517"/>
+  <rect x="24" y="102" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="102" width="12" height="12" fill="#15151c"/>
+  <rect x="72" y="102" width="12" height="12" fill="#2c2c38"/>
+  <rect x="84" y="102" width="12" height="12" fill="#15151c"/>
+  <rect x="96" y="102" width="12" height="12" fill="#2c2c38"/>
+  <rect x="132" y="102" width="12" height="12" fill="#382517"/>
+  <rect x="60" y="114" width="12" height="12" fill="#1a1a24"/>
+  <rect x="72" y="114" width="12" height="12" fill="#1a1a24"/>
+  <rect x="84" y="114" width="12" height="12" fill="#1a1a24"/>
+  <rect x="96" y="114" width="12" height="12" fill="#1a1a24"/>
+  <rect x="60" y="126" width="12" height="12" fill="#1a1a24"/>
+  <rect x="72" y="126" width="12" height="12" fill="#1a1a24"/>
+  <rect x="84" y="126" width="12" height="12" fill="#1a1a24"/>
+  <rect x="96" y="126" width="12" height="12" fill="#1a1a24"/>
+  <rect x="60" y="138" width="12" height="12" fill="#1a1a24"/>
+  <rect x="72" y="138" width="12" height="12" fill="#1a1a24"/>
+  <rect x="84" y="138" width="12" height="12" fill="#1a1a24"/>
+  <rect x="96" y="138" width="12" height="12" fill="#1a1a24"/>
+  <rect x="60" y="150" width="12" height="12" fill="#1a1a24"/>
+  <rect x="96" y="150" width="12" height="12" fill="#1a1a24"/>
+  <rect x="60" y="162" width="12" height="12" fill="#1a1a24"/>
+  <rect x="96" y="162" width="12" height="12" fill="#1a1a24"/>
+  <rect x="48" y="174" width="12" height="12" fill="#0a0a0f"/>
+  <rect x="60" y="174" width="12" height="12" fill="#0a0a0f"/>
+  <rect x="96" y="174" width="12" height="12" fill="#0a0a0f"/>
+  <rect x="108" y="174" width="12" height="12" fill="#0a0a0f"/>
 </svg>

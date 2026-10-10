@@ -1,4 +1,5 @@
 // Mobile Landscape Split-Thumb Touch Controls & Virtual Joystick
+// Rock-solid mobile touch handling with pointer events and haptics
 
 class ControlsManager {
   constructor(socket) {
@@ -14,7 +15,7 @@ class ControlsManager {
     this.joystickTouchId = null;
     this.joystickStartX = 0;
     this.joystickStartY = 0;
-    this.joystickMaxRadius = 50;
+    this.joystickMaxRadius = 55;
 
     // DOM Elements
     this.joystickZone = document.getElementById('joystick-zone');
@@ -40,13 +41,13 @@ class ControlsManager {
 
   initTouchControls() {
     // 1. Floating Virtual Joystick on Left Half of Screen
-    this.joystickZone.addEventListener('touchstart', (e) => {
+    const handleJoyStart = (e) => {
       e.preventDefault();
       if (this.joystickActive) return;
 
-      const touch = e.changedTouches[0];
+      const touch = e.touches ? e.touches[0] : e;
       this.joystickActive = true;
-      this.joystickTouchId = touch.identifier;
+      this.joystickTouchId = e.pointerId !== undefined ? e.pointerId : (touch.identifier !== undefined ? touch.identifier : 1);
       this.joystickStartX = touch.clientX;
       this.joystickStartY = touch.clientY;
 
@@ -56,112 +57,176 @@ class ControlsManager {
       this.joystickThumb.style.transform = `translate(-50%, -50%)`;
 
       this.vibrate(15);
-    }, { passive: false });
+    };
 
-    window.addEventListener('touchmove', (e) => {
+    const handleJoyMove = (e) => {
       if (!this.joystickActive) return;
+      let clientX = null, clientY = null;
 
-      for (let i = 0; i < e.changedTouches.length; i++) {
-        const touch = e.changedTouches[i];
-        if (touch.identifier === this.joystickTouchId) {
-          const dx = touch.clientX - this.joystickStartX;
-          const dy = touch.clientY - this.joystickStartY;
-          const dist = Math.hypot(dx, dy);
-
-          const clampedDist = Math.min(dist, this.joystickMaxRadius);
-          const angle = Math.atan2(dy, dx);
-
-          const thumbX = Math.cos(angle) * clampedDist;
-          const thumbY = Math.sin(angle) * clampedDist;
-
-          this.joystickThumb.style.transform = `translate(calc(-50% + ${thumbX}px), calc(-50% + ${thumbY}px))`;
-
-          // Normalized input vector
-          const norm = clampedDist / this.joystickMaxRadius;
-          this.vx = Math.cos(angle) * norm;
-          this.vy = Math.sin(angle) * norm;
-          this.angle = angle;
-
-          this.sendInput();
-          break;
+      if (e.touches) {
+        for (let i = 0; i < e.touches.length; i++) {
+          if (e.touches[i].identifier === this.joystickTouchId) {
+            clientX = e.touches[i].clientX;
+            clientY = e.touches[i].clientY;
+            break;
+          }
         }
+      } else if (e.pointerId === this.joystickTouchId || e.pointerId === undefined) {
+        clientX = e.clientX;
+        clientY = e.clientY;
       }
-    }, { passive: false });
 
-    const handleJoystickEnd = (e) => {
+      if (clientX === null) return;
+      e.preventDefault();
+
+      const dx = clientX - this.joystickStartX;
+      const dy = clientY - this.joystickStartY;
+      const dist = Math.hypot(dx, dy);
+
+      const clampedDist = Math.min(dist, this.joystickMaxRadius);
+      const angle = Math.atan2(dy, dx);
+
+      const thumbX = Math.cos(angle) * clampedDist;
+      const thumbY = Math.sin(angle) * clampedDist;
+
+      this.joystickThumb.style.transform = `translate(calc(-50% + ${thumbX}px), calc(-50% + ${thumbY}px))`;
+
+      // Normalized input vector
+      const norm = clampedDist / this.joystickMaxRadius;
+      this.vx = Math.cos(angle) * norm;
+      this.vy = Math.sin(angle) * norm;
+      this.angle = angle;
+
+      this.sendInput();
+    };
+
+    const handleJoyEnd = (e) => {
       if (!this.joystickActive) return;
-      for (let i = 0; i < e.changedTouches.length; i++) {
-        if (e.changedTouches[i].identifier === this.joystickTouchId) {
-          this.joystickActive = false;
-          this.joystickTouchId = null;
-          this.joystickBase.style.display = 'none';
-          this.vx = 0;
-          this.vy = 0;
-          this.sendInput();
-          break;
+      let matches = false;
+      if (e.changedTouches) {
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === this.joystickTouchId) matches = true;
         }
+      } else {
+        matches = true;
+      }
+
+      if (matches) {
+        this.joystickActive = false;
+        this.joystickTouchId = null;
+        this.joystickBase.style.display = 'none';
+        this.vx = 0;
+        this.vy = 0;
+        this.sendInput();
       }
     };
 
-    window.addEventListener('touchend', handleJoystickEnd);
-    window.addEventListener('touchcancel', handleJoystickEnd);
+    if (this.joystickZone) {
+      this.joystickZone.style.touchAction = 'none';
+      this.joystickZone.addEventListener('touchstart', handleJoyStart, { passive: false });
+      window.addEventListener('touchmove', handleJoyMove, { passive: false });
+      window.addEventListener('touchend', handleJoyEnd);
+      window.addEventListener('touchcancel', handleJoyEnd);
+
+      // Pointer event fallback for mouse/tablets
+      this.joystickZone.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'touch') return; // Handled by touchstart
+        handleJoyStart(e);
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        handleJoyMove(e);
+      });
+      window.addEventListener('pointerup', (e) => {
+        if (e.pointerType === 'touch') return;
+        handleJoyEnd(e);
+      });
+    }
+
+    // Helper to bind tactile mobile buttons with both Pointer and Touch events
+    const bindTactileButton = (elem, onDown, onUp) => {
+      if (!elem) return;
+      elem.style.touchAction = 'none';
+      elem.style.userSelect = 'none';
+      elem.style.webkitUserSelect = 'none';
+
+      let isPressed = false;
+
+      const triggerDown = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPressed) return;
+        isPressed = true;
+        onDown();
+      };
+
+      const triggerUp = (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        if (!isPressed) return;
+        isPressed = false;
+        if (onUp) onUp();
+      };
+
+      // Pointer Events (Modern Mobile Browsers)
+      elem.addEventListener('pointerdown', triggerDown, { passive: false });
+      window.addEventListener('pointerup', triggerUp, { passive: false });
+      window.addEventListener('pointercancel', triggerUp, { passive: false });
+
+      // Touch Events fallback
+      elem.addEventListener('touchstart', triggerDown, { passive: false });
+      elem.addEventListener('touchend', triggerUp, { passive: false });
+      elem.addEventListener('touchcancel', triggerUp, { passive: false });
+    };
 
     // 2. Sprint Button (Hold to Sprint)
-    this.btnSprint.addEventListener('touchstart', (e) => {
-      e.preventDefault();
+    bindTactileButton(this.btnSprint, () => {
       this.isSprinting = true;
       this.btnSprint.classList.add('active');
       this.vibrate(20);
       this.sendInput();
-    }, { passive: false });
-
-    this.btnSprint.addEventListener('touchend', (e) => {
-      e.preventDefault();
+    }, () => {
       this.isSprinting = false;
       this.btnSprint.classList.remove('active');
       this.sendInput();
-    }, { passive: false });
+    });
 
-    // 3. Panic Dash Button
-    this.btnDash.addEventListener('touchstart', (e) => {
-      e.preventDefault();
+    // 3. Instant Panic Dash Button (Tap to Dash!) - Supports 2 Consecutive Charges!
+    let lastDashTap = 0;
+    bindTactileButton(this.btnDash, () => {
       const now = Date.now();
-      if (now > this.dashCooldownUntil) {
-        this.dashCooldownUntil = now + 3200;
-        this.startDashCooldownAnim(3200);
-        this.vibrate([30, 20, 40]);
+      if (now - lastDashTap > 250) {
+        lastDashTap = now;
+        this.vibrate([35, 20, 45]);
         if (window.soundEngine) window.soundEngine.playDash();
 
         if (this.socket && this.socket.readyState === WebSocket.OPEN) {
           this.socket.send(JSON.stringify({ type: 'dash' }));
         }
       }
-    }, { passive: false });
+    }, null);
 
-    // 4. Hold Breath (Hold to be Silent)
-    this.btnBreath.addEventListener('touchstart', (e) => {
-      e.preventDefault();
+    // 4. Hold Breath / Silent Button (Hold to be Silent)
+    bindTactileButton(this.btnBreath, () => {
       this.isHoldingBreath = true;
       this.btnBreath.classList.add('active');
       this.vibrate(25);
       this.sendInput();
-    }, { passive: false });
-
-    this.btnBreath.addEventListener('touchend', (e) => {
-      e.preventDefault();
+    }, () => {
       this.isHoldingBreath = false;
       this.btnBreath.classList.remove('active');
       this.sendInput();
-    }, { passive: false });
+    });
 
-    // 5. Hide in Wardrobe Button
-    this.btnHide.addEventListener('touchstart', (e) => {
-      e.preventDefault();
+    // 5. Hide in Arcade Cabinet / Photo Booth Button
+    bindTactileButton(this.btnHide, () => {
       this.vibrate(40);
       if (this.socket && this.socket.readyState === WebSocket.OPEN) {
         this.socket.send(JSON.stringify({ type: 'toggle_hide' }));
       }
-    }, { passive: false });
+    }, null);
   }
 
   startDashCooldownAnim(durationMs) {
@@ -169,11 +234,13 @@ class ControlsManager {
     const tick = () => {
       const elapsed = Date.now() - startTime;
       const pct = Math.max(0, 100 - (elapsed / durationMs) * 100);
-      this.dashOverlay.style.height = `${pct}%`;
+      if (this.dashOverlay) {
+        this.dashOverlay.style.height = `${pct}%`;
+      }
       if (pct > 0) {
         requestAnimationFrame(tick);
       } else {
-        this.dashOverlay.style.height = '0%';
+        if (this.dashOverlay) this.dashOverlay.style.height = '0%';
       }
     };
     tick();
@@ -202,8 +269,8 @@ class ControlsManager {
         // Space to Dash
         const now = Date.now();
         if (now > this.dashCooldownUntil) {
-          this.dashCooldownUntil = now + 3200;
-          this.startDashCooldownAnim(3200);
+          this.dashCooldownUntil = now + 2600;
+          this.startDashCooldownAnim(2600);
           if (window.soundEngine) window.soundEngine.playDash();
           if (this.socket && this.socket.readyState === WebSocket.OPEN) {
             this.socket.send(JSON.stringify({ type: 'dash' }));

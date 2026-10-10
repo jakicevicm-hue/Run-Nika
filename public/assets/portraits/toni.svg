@@ -1,72 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <radialGradient id="toni-bg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#193330"/>
-      <stop offset="100%" stop-color="#0a1715"/>
-    </radialGradient>
-    <linearGradient id="toni-skin" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fee2cf"/>
-      <stop offset="100%" stop-color="#f5caa6"/>
-    </linearGradient>
-    <linearGradient id="toni-hair" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2a201c"/>
-      <stop offset="100%" stop-color="#140e0b"/>
-    </linearGradient>
-  </defs>
-  <!-- Background -->
-  <rect width="200" height="200" rx="20" fill="url(#toni-bg)"/>
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#2ec4b6" stroke-width="2.5" stroke-opacity="0.4"/>
-
-  <!-- White Casual Tee Body -->
-  <path d="M48 195 C52 152, 75 140, 100 140 C125 140, 148 152, 152 195 Z" fill="#ffffff"/>
-  <!-- Crewneck collar -->
-  <path d="M84 140 Q100 148 116 140" fill="none" stroke="#e0e3e8" stroke-width="2.8"/>
-  <!-- Graphic Tee text hint ("Baker's Soul") -->
-  <path d="M88 165 Q100 162 112 165" stroke="#2b4c7e" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Neck -->
-  <rect x="88" y="116" width="24" height="28" rx="4" fill="url(#toni-skin)"/>
-
-  <!-- Head -->
-  <ellipse cx="100" cy="94" rx="35" ry="41" fill="url(#toni-skin)"/>
-
-  <!-- Eyes -->
-  <ellipse cx="85" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <ellipse cx="115" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <circle cx="86.5" cy="87.5" r="1.5" fill="#ffffff"/>
-  <circle cx="116.5" cy="87.5" r="1.5" fill="#ffffff"/>
-
-  <!-- Eyebrows -->
-  <path d="M77 79 Q85 77 92 80" fill="none" stroke="#1f1814" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M108 80 Q115 77 123 79" fill="none" stroke="#1f1814" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- Nose -->
-  <path d="M100 90 L96 99 L104 99" fill="none" stroke="#d99f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Toni's Stylish Dark Glasses -->
-  <g>
-    <!-- Left Frame -->
-    <rect x="70" y="80" width="26" height="20" rx="6" fill="none" stroke="#22252a" stroke-width="2.5"/>
-    <rect x="71" y="81" width="24" height="18" rx="5" fill="rgba(255, 255, 255, 0.08)"/>
-    <!-- Right Frame -->
-    <rect x="104" y="80" width="26" height="20" rx="6" fill="none" stroke="#22252a" stroke-width="2.5"/>
-    <rect x="105" y="81" width="24" height="18" rx="5" fill="rgba(255, 255, 255, 0.08)"/>
-    <!-- Bridge -->
-    <path d="M96 87 L104 87" stroke="#22252a" stroke-width="2.5"/>
-    <!-- Temples -->
-    <line x1="70" y1="86" x2="63" y2="84" stroke="#22252a" stroke-width="2"/>
-    <line x1="130" y1="86" x2="137" y2="84" stroke="#22252a" stroke-width="2"/>
-  </g>
-
-  <!-- Goatee & Mustache -->
-  <g>
-    <path d="M91 106 Q100 104 109 106 Q105 109 100 108 Q95 109 91 106 Z" fill="#1f1814"/>
-    <path d="M94 111 Q100 113 106 111" fill="none" stroke="#c06050" stroke-width="1.8"/>
-    <path d="M94 116 Q100 126 106 116 Q104 128 100 131 Q96 128 94 116 Z" fill="#1f1814"/>
-  </g>
-
-  <!-- Voluminous Styled Dark Hair -->
-  <path d="M62 82 C60 48, 72 32, 100 32 C128 32, 140 48, 138 82 C134 62, 122 56, 100 58 C78 56, 66 62, 62 82 Z" fill="url(#toni-hair)"/>
-  <!-- Top Volume Swirls -->
-  <path d="M72 48 Q85 36 100 38 Q115 36 128 48 Q115 42 100 44 Q85 42 72 48 Z" fill="#352924"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" shape-rendering="crispEdges">
+  <rect width="192" height="192" rx="12" fill="#122624"/>
+  <rect x="2" y="2" width="188" height="188" rx="10" fill="none" stroke="#2ec4b6" stroke-width="3" stroke-opacity="0.6"/>
+  <rect x="48" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="72" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="84" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="96" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="108" y="6" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="48" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="72" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="84" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="96" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="108" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="120" y="18" width="12" height="12" fill="#181412"/>
+  <rect x="24" y="30" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="30" width="12" height="12" fill="#181412"/>
+  <rect x="48" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="60" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="72" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="84" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="96" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="108" y="30" width="12" height="12" fill="#f7d6be"/>
+  <rect x="120" y="30" width="12" height="12" fill="#181412"/>
+  <rect x="132" y="30" width="12" height="12" fill="#181412"/>
+  <rect x="24" y="42" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="42" width="12" height="12" fill="#1e2022"/>
+  <rect x="48" y="42" width="12" height="12" fill="#f7d6be"/>
+  <rect x="60" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="96" y="42" width="12" height="12" fill="#f7d6be"/>
+  <rect x="108" y="42" width="12" height="12" fill="#1e2022"/>
+  <rect x="120" y="42" width="12" height="12" fill="#1e2022"/>
+  <rect x="132" y="42" width="12" height="12" fill="#181412"/>
+  <rect x="24" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="48" y="54" width="12" height="12" fill="#f7d6be"/>
+  <rect x="60" y="54" width="12" height="12" fill="#f7d6be"/>
+  <rect x="72" y="54" width="12" height="12" fill="#f7d6be"/>
+  <rect x="84" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="96" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="108" y="54" width="12" height="12" fill="#f7d6be"/>
+  <rect x="120" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="132" y="54" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="66" width="12" height="12" fill="#181412"/>
+  <rect x="48" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="60" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="72" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="84" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="96" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="108" y="66" width="12" height="12" fill="#f7d6be"/>
+  <rect x="120" y="66" width="12" height="12" fill="#181412"/>
+  <rect x="36" y="78" width="12" height="12" fill="#181412"/>
+  <rect x="48" y="78" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="108" y="78" width="12" height="12" fill="#181412"/>
+  <rect x="120" y="78" width="12" height="12" fill="#181412"/>
+  <rect x="24" y="90" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="90" width="12" height="12" fill="#2b4c7e"/>
+  <rect x="84" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="132" y="90" width="12" height="12" fill="#181412"/>
+  <rect x="24" y="102" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="102" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="102" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="102" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="102" width="12" height="12" fill="#ffffff"/>
+  <rect x="132" y="102" width="12" height="12" fill="#181412"/>
+  <rect x="60" y="114" width="12" height="12" fill="#2b2d42"/>
+  <rect x="72" y="114" width="12" height="12" fill="#2b2d42"/>
+  <rect x="84" y="114" width="12" height="12" fill="#2b2d42"/>
+  <rect x="96" y="114" width="12" height="12" fill="#2b2d42"/>
+  <rect x="60" y="126" width="12" height="12" fill="#2b2d42"/>
+  <rect x="72" y="126" width="12" height="12" fill="#2b2d42"/>
+  <rect x="84" y="126" width="12" height="12" fill="#2b2d42"/>
+  <rect x="96" y="126" width="12" height="12" fill="#2b2d42"/>
+  <rect x="60" y="138" width="12" height="12" fill="#2b2d42"/>
+  <rect x="72" y="138" width="12" height="12" fill="#2b2d42"/>
+  <rect x="84" y="138" width="12" height="12" fill="#2b2d42"/>
+  <rect x="96" y="138" width="12" height="12" fill="#2b2d42"/>
+  <rect x="60" y="150" width="12" height="12" fill="#2b2d42"/>
+  <rect x="96" y="150" width="12" height="12" fill="#2b2d42"/>
+  <rect x="60" y="162" width="12" height="12" fill="#2b2d42"/>
+  <rect x="96" y="162" width="12" height="12" fill="#2b2d42"/>
+  <rect x="48" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="60" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="96" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="108" y="174" width="12" height="12" fill="#eaeaea"/>
 </svg>

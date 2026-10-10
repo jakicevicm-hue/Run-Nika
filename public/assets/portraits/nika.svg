@@ -1,69 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <radialGradient id="nika-bg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#362234"/>
-      <stop offset="100%" stop-color="#19101a"/>
-    </radialGradient>
-    <linearGradient id="nika-skin" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fee2cf"/>
-      <stop offset="100%" stop-color="#f5caa6"/>
-    </linearGradient>
-    <linearGradient id="nika-hair" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4a2e1d"/>
-      <stop offset="100%" stop-color="#2c180e"/>
-    </linearGradient>
-  </defs>
-  <!-- Background -->
-  <rect width="200" height="200" rx="20" fill="url(#nika-bg)"/>
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#ff758f" stroke-width="2.5" stroke-opacity="0.4"/>
-
-  <!-- Long Hair Behind -->
-  <path d="M50 85 C35 125, 40 180, 70 195 L130 195 C160 180, 165 125, 150 85 Z" fill="url(#nika-hair)"/>
-
-  <!-- Body / Shoulders -->
-  <path d="M52 195 C55 155, 78 142, 100 142 C122 142, 145 155, 148 195 Z" fill="#f8f9fa"/>
-  <!-- Neck -->
-  <rect x="88" y="118" width="24" height="28" rx="6" fill="url(#nika-skin)"/>
-
-  <!-- Head -->
-  <ellipse cx="100" cy="94" rx="36" ry="42" fill="url(#nika-skin)"/>
-
-  <!-- Facial Features -->
-  <!-- Eyes -->
-  <ellipse cx="85" cy="90" rx="5" ry="3.5" fill="#2d1c14"/>
-  <ellipse cx="115" cy="90" rx="5" ry="3.5" fill="#2d1c14"/>
-  <circle cx="86.5" cy="88.5" r="1.5" fill="#ffffff"/>
-  <circle cx="116.5" cy="88.5" r="1.5" fill="#ffffff"/>
-  <!-- Eyebrows -->
-  <path d="M78 82 Q85 80 92 83" fill="none" stroke="#362215" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M108 83 Q115 80 122 82" fill="none" stroke="#362215" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- Nose -->
-  <path d="M100 93 L97 101 L103 101" fill="none" stroke="#d99f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Lips -->
-  <path d="M92 112 Q100 116 108 112" fill="none" stroke="#d65a6f" stroke-width="3" stroke-linecap="round"/>
-  <!-- Soft Cheek Blush -->
-  <ellipse cx="78" cy="102" rx="7" ry="4" fill="#ff758f" opacity="0.3"/>
-  <ellipse cx="122" cy="102" rx="7" ry="4" fill="#ff758f" opacity="0.3"/>
-
-  <!-- Wavy Hair In Front -->
-  <path d="M60 85 C55 50, 75 40, 100 40 C125 40, 145 50, 140 85 C132 68, 120 62, 100 64 C80 62, 68 68, 60 85 Z" fill="url(#nika-hair)"/>
-  <path d="M58 85 C55 110, 68 140, 72 155 C65 135, 58 110, 60 85 Z" fill="url(#nika-hair)"/>
-  <path d="M142 85 C145 110, 132 140, 128 155 C135 135, 142 110, 140 85 Z" fill="url(#nika-hair)"/>
-
-  <!-- Nika's Signature Vintage Camera in Front -->
-  <g transform="translate(108, 135)">
-    <!-- Strap -->
-    <path d="M-30 -10 Q-15 10 0 8" fill="none" stroke="#4a3e30" stroke-width="2"/>
-    <!-- Camera Body -->
-    <rect x="-8" y="0" width="46" height="30" rx="5" fill="#252422" stroke="#403d39" stroke-width="1.5"/>
-    <rect x="-8" y="0" width="46" height="8" rx="2" fill="#cfdbd5"/>
-    <!-- Lens Ring -->
-    <circle cx="15" cy="16" r="11" fill="#1b1a17" stroke="#ffd166" stroke-width="1.8"/>
-    <circle cx="15" cy="16" r="7" fill="#000000"/>
-    <circle cx="13" cy="14" r="2.5" fill="#06d6a0"/>
-    <!-- Flash Unit / Viewfinder -->
-    <rect x="2" y="-4" width="10" height="5" rx="1.5" fill="#fff3b0"/>
-    <!-- Shutter Button -->
-    <circle cx="28" cy="-2" r="3" fill="#e63946"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" shape-rendering="crispEdges">
+  <rect width="192" height="192" rx="12" fill="#2b1b2f"/>
+  <rect x="2" y="2" width="188" height="188" rx="10" fill="none" stroke="#ff758f" stroke-width="3" stroke-opacity="0.6"/>
+  <rect x="48" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="60" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="72" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="84" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="96" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="108" y="6" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="60" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="72" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="84" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="96" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="108" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="120" y="18" width="12" height="12" fill="#3e2617"/>
+  <rect x="24" y="30" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="30" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="60" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="72" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="84" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="96" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="108" y="30" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="120" y="30" width="12" height="12" fill="#3e2617"/>
+  <rect x="132" y="30" width="12" height="12" fill="#3e2617"/>
+  <rect x="24" y="42" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="42" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="42" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="60" y="42" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="72" y="42" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="84" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="108" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="120" y="42" width="12" height="12" fill="#3e2617"/>
+  <rect x="132" y="42" width="12" height="12" fill="#3e2617"/>
+  <rect x="24" y="54" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="54" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="60" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="72" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="84" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="96" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="108" y="54" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="120" y="54" width="12" height="12" fill="#3e2617"/>
+  <rect x="132" y="54" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="66" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="60" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="72" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="84" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="96" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="108" y="66" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="120" y="66" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="78" width="12" height="12" fill="#3e2617"/>
+  <rect x="48" y="78" width="12" height="12" fill="#3e2617"/>
+  <rect x="60" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="108" y="78" width="12" height="12" fill="#3e2617"/>
+  <rect x="120" y="78" width="12" height="12" fill="#3e2617"/>
+  <rect x="144" y="78" width="12" height="12" fill="#222222"/>
+  <rect x="156" y="78" width="12" height="12" fill="#d4af37"/>
+  <rect x="24" y="90" width="12" height="12" fill="#3e2617"/>
+  <rect x="36" y="90" width="12" height="12" fill="#3e2617"/>
+  <rect x="60" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="120" y="90" width="12" height="12" fill="#3e2617"/>
+  <rect x="144" y="90" width="12" height="12" fill="#222222"/>
+  <rect x="156" y="90" width="12" height="12" fill="#00f5d4"/>
+  <rect x="24" y="102" width="12" height="12" fill="#3e2617"/>
+  <rect x="60" y="102" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="72" y="102" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="84" y="102" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="96" y="102" width="12" height="12" fill="#fcd5b5"/>
+  <rect x="156" y="102" width="12" height="12" fill="#222222"/>
+  <rect x="60" y="114" width="12" height="12" fill="#3a5a78"/>
+  <rect x="72" y="114" width="12" height="12" fill="#3a5a78"/>
+  <rect x="84" y="114" width="12" height="12" fill="#3a5a78"/>
+  <rect x="96" y="114" width="12" height="12" fill="#3a5a78"/>
+  <rect x="60" y="126" width="12" height="12" fill="#3a5a78"/>
+  <rect x="72" y="126" width="12" height="12" fill="#3a5a78"/>
+  <rect x="84" y="126" width="12" height="12" fill="#3a5a78"/>
+  <rect x="96" y="126" width="12" height="12" fill="#3a5a78"/>
+  <rect x="60" y="138" width="12" height="12" fill="#3a5a78"/>
+  <rect x="72" y="138" width="12" height="12" fill="#3a5a78"/>
+  <rect x="84" y="138" width="12" height="12" fill="#3a5a78"/>
+  <rect x="96" y="138" width="12" height="12" fill="#3a5a78"/>
+  <rect x="60" y="150" width="12" height="12" fill="#3a5a78"/>
+  <rect x="96" y="150" width="12" height="12" fill="#3a5a78"/>
+  <rect x="60" y="162" width="12" height="12" fill="#3a5a78"/>
+  <rect x="96" y="162" width="12" height="12" fill="#3a5a78"/>
+  <rect x="48" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="60" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="96" y="174" width="12" height="12" fill="#eaeaea"/>
+  <rect x="108" y="174" width="12" height="12" fill="#eaeaea"/>
 </svg>

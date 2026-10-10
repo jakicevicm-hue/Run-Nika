@@ -1,119 +1,299 @@
-// Character Definitions & Custom Top-Down Pixel Sprite Renderers
+// 16-Bit Chibi Pixel Art Character Engine
+// Authentic blocky pixel-by-pixel rendering inspired by classic retro arcade games
+// Floating animated 8-bit Soul Flame for the cursed chaser!
 
-const CHARACTER_REGISTRY = {
+const PIXEL_SCALE = 3.5; // Scale each retro pixel on screen
+
+// 16x18 Pixel Grid Blueprints for each character
+const PIXEL_DATA = {
   nika: {
-    id: 'nika',
     name: 'Nika',
-    title: 'The Photographer',
-    trait: 'Camera Flash & Polaroid on Catch',
-    portrait: '/assets/portraits/nika.svg',
-    hairColor: '#402617', // Dark wavy brown
-    shirtColor: '#f4f3f0', // White crop top
-    pantsColor: '#3d5a80', // Blue denim cargo jeans
-    hasCamera: true,
-    hasGlasses: false,
-    skinTone: '#fcd5b5'
+    palette: {
+      S: '#fcd5b5', // skin
+      E: '#111111', // eye
+      B: '#3e2617', // dark wavy hair
+      T: '#ffffff', // white crop top
+      P: '#3a5a78', // denim blue cargo
+      F: '#eaeaea', // sneakers
+      C: '#222222', // camera body
+      c: '#00f5d4', // camera lens cyan glint
+      g: '#d4af37'  // camera gold dial
+    },
+    grid: [
+      "....BBBBBB......",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BBSSSE.EBB....",
+      "..BBSSSSSSBB....",
+      "...BSSSSSSB.....",
+      "...BBTTTTBB.Cg..",
+      "..BB.TTTT.B.Cc..",
+      "..B..SSSS....C..",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....P..P.......",
+      ".....P..P.......",
+      "....FF..FF......"
+    ]
   },
+
   marina: {
-    id: 'marina',
     name: 'Marina',
-    title: 'The Radiant Spirit',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/marina.svg',
-    hairColor: '#4a2f1b', // Long wavy brown
-    shirtColor: '#f8f4e6', // Cream white knit sweater
-    pantsColor: '#2b2d42', // Dark bottoms
-    hasCamera: false,
-    hasGlasses: false,
-    skinTone: '#fcd8b8'
+    palette: {
+      S: '#fcd8b8',
+      E: '#111111',
+      B: '#4a2f1b', // wavy chestnut hair
+      T: '#f8f4e6', // cream knit sweater
+      t: '#e2d7c0', // sweater knit detail
+      P: '#2b2d42', // dark skirt
+      F: '#1b1b1b', // dark boots
+      M: '#d94b62'  // smile
+    },
+    grid: [
+      "....BBBBBB......",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BBSSSE.EBB....",
+      "..BBSSSSSSBB....",
+      "...BSSMMSSB.....",
+      "...BBTtTtBB.....",
+      "..BB.TTTT.B.....",
+      "..B..TtTt..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....S..S.......",
+      ".....S..S.......",
+      "....FF..FF......"
+    ]
   },
+
   ella: {
-    id: 'ella',
     name: 'Ella',
-    title: 'The Poised Enigma',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/ella.svg',
-    hairColor: '#2c1e14', // Straight dark brunette
-    shirtColor: '#4a1525', // Deep burgundy / chocolate crewneck
-    pantsColor: '#1e1e24', // Black trousers
-    hasGoldNecklace: true,
-    hasCamera: false,
-    hasGlasses: false,
-    skinTone: '#f8d0b0'
+    palette: {
+      S: '#f8d0b0',
+      E: '#111111',
+      B: '#251912', // straight dark hair
+      T: '#4a1525', // burgundy fitted tee
+      P: '#1c1c24', // black trousers
+      F: '#f0f0f0', // white shoes
+      A: '#ffd700'  // gold necklace
+    },
+    grid: [
+      "....BBBBBB......",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BBSSSE.EBB....",
+      "..BBSSSSSSBB....",
+      "...BSSSSSSB.....",
+      "...BBTTTTBB.....",
+      "..B..TATT..B....",
+      "..B..TTTT..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....P..P.......",
+      ".....P..P.......",
+      "....FF..FF......"
+    ]
   },
+
   kjara: {
-    id: 'kjara',
     name: 'Kjara',
-    title: 'The Nocturnal Mystic',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/kjara.svg',
-    hairColor: '#382517', // Shaggy wavy brunette
-    shirtColor: '#121217', // Black gothic lace patterned top
-    pantsColor: '#1a1a24', // Dark gothic bottoms
-    hasGlasses: true,      // Amber round spectacles
-    glassesColor: '#d4af37',
-    hasCamera: false,
-    skinTone: '#fbe2cd'
+    palette: {
+      S: '#fbe2cd',
+      E: '#111111',
+      G: '#d4af37', // amber round glasses
+      B: '#382517', // shaggy wavy brunette
+      T: '#15151c', // sheer black gothic lace top
+      t: '#2c2c38', // lace detail
+      P: '#1a1a24', // dark bottoms
+      F: '#0a0a0f'  // boots
+    },
+    grid: [
+      "...BBBBBBBB.....",
+      "..BBBBBBBBBB....",
+      "..BBSSSSSSBB....",
+      "..BGSE.ESGGB....",
+      "..BBSSSSSSBB....",
+      "...BSSSSSSB.....",
+      "...BBTtTtBB.....",
+      "..B..TTTT..B....",
+      "..B..TtTt..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....P..P.......",
+      ".....P..P.......",
+      "....FF..FF......"
+    ]
   },
+
   milan: {
-    id: 'milan',
     name: 'Milan',
-    title: 'The Velvet Rogue',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/milan.svg',
-    hairColor: '#1c1512', // Textured dark crop fade
-    shirtColor: '#b07d62', // Tan / brown plaid checked shirt
-    pantsColor: '#4f5d2f', // Khaki / olive green trousers
-    hasBeard: true,
-    hasCamera: false,
-    hasGlasses: false,
-    skinTone: '#edd3be'
+    palette: {
+      S: '#edd3be',
+      E: '#111111',
+      B: '#1c1512', // dark textured crop fade
+      T: '#b07d62', // tan plaid
+      t: '#7a4b35', // brown plaid line
+      P: '#4a5933', // olive green / khaki trousers
+      F: '#eaeaea', // sneakers
+      D: '#1c1512'  // beard & eyebrow slit detail
+    },
+    grid: [
+      ".....BBBB.......",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BBSSSE.EDB....",
+      "..BBSSSDDSBB....",
+      "...BSSSSSSB.....",
+      "...BBTtTtBB.....",
+      "..B..tTtT..B....",
+      "..B..TtTt..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....P..P.......",
+      ".....P..P.......",
+      "....FF..FF......"
+    ]
   },
+
   bojana: {
-    id: 'bojana',
     name: 'Bojana',
-    title: 'The Daring Explorer',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/bojana.svg',
-    hairColor: '#5c3a21', // Caramel brown
-    shirtColor: '#ffffff', // White halter top
-    pantsColor: '#8ecae6', // Light denim skirt
-    hasHeadSunglasses: true,
-    hasCamera: false,
-    hasGlasses: false,
-    skinTone: '#fedac2'
+    palette: {
+      S: '#fedac2',
+      E: '#111111',
+      B: '#5c3a21', // caramel brown hair
+      A: '#111111', // sunglasses on head
+      a: '#383838', // sunglasses tint
+      T: '#ffffff', // white halter top
+      P: '#7cb9e8', // light blue denim skirt
+      F: '#d4af37'  // sandals
+    },
+    grid: [
+      "...AaAAAAaA.....",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BBSSSE.EBB....",
+      "..BBSSSSSSBB....",
+      "...BSSSSSSB.....",
+      "...BBTTTTBB.....",
+      "..B..TTTT..B....",
+      "..B..SSSS..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....S..S.......",
+      ".....S..S.......",
+      "....FF..FF......"
+    ]
   },
+
   toni: {
-    id: 'toni',
     name: 'Toni',
-    title: 'The Keen Strategist',
-    trait: 'Gothic Soul Flame',
-    portrait: '/assets/portraits/toni.svg',
-    hairColor: '#181412', // Styled dark hair with volume
-    shirtColor: '#ffffff', // White graphic tee
-    pantsColor: '#2b2d42', // Dark bottoms
-    hasBeard: true,
-    hasGlasses: true,      // Dark framed glasses
-    glassesColor: '#1e2022',
-    hasCamera: false,
-    skinTone: '#f7d6be'
+    palette: {
+      S: '#f7d6be',
+      E: '#111111',
+      G: '#1e2022', // dark glasses
+      B: '#181412', // dark styled hair
+      T: '#ffffff', // white t-shirt
+      t: '#2b4c7e', // graphic logo
+      P: '#2b2d42', // dark trousers
+      F: '#eaeaea', // sneakers
+      D: '#181412'  // goatee
+    },
+    grid: [
+      "....BBBBBB......",
+      "...BBBBBBBB.....",
+      "..BBSSSSSSBB....",
+      "..BGSE.ESGGB....",
+      "..BBSSSDDSBB....",
+      "...BSSSSSSB.....",
+      "...BBTTTTBB.....",
+      "..B..TtTT..B....",
+      "..B..TTTT..B....",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....PPPP.......",
+      ".....P..P.......",
+      ".....P..P.......",
+      "....FF..FF......"
+    ]
   }
 };
 
-// Render Top-Down Pixel Sprites with Character Details
+// 4-Frame Animated Retro Pixel Flame Sprite (8x10 pixels)
+// R = Red/Magenta tip, O = Orange, Y = Yellow core, . = transparent
+const FLAME_FRAMES = [
+  [
+    "...RR...",
+    "..ROOR..",
+    ".ROYYOR.",
+    ".OYYYYO.",
+    "ROYYYYOR",
+    "OYYYYYYO",
+    "OYYYYYYO",
+    ".OYYYYO.",
+    "..ROOR..",
+    "...RR..."
+  ],
+  [
+    "..R.....",
+    "..ROOR..",
+    ".ROYYOR.",
+    "ROYYYYOR",
+    "OYYYYYYO",
+    "OYYYYYYO",
+    ".OYYYYO.",
+    "..OYYO..",
+    "...RR...",
+    "........"
+  ],
+  [
+    ".....R..",
+    "..ROOR..",
+    ".ROYYOR.",
+    ".OYYYYOR",
+    "ROYYYYYO",
+    "OYYYYYYO",
+    "OYYYYYYO",
+    ".OYYYYO.",
+    "..ROOR..",
+    "...RR..."
+  ],
+  [
+    "...RR...",
+    "..ROOR..",
+    "ROOYYOR.",
+    "OYYYYYYO",
+    "OYYYYYYO",
+    ".OYYYYO.",
+    "..OYYO..",
+    "...RR...",
+    "........",
+    "........"
+  ]
+];
+
+const FLAME_PALETTE = {
+  R: '#ff0054', // Magenta-Crimson
+  O: '#ff7b00', // Electric Orange
+  Y: '#ffff3f'  // Radiant Lemon Yellow
+};
+
+// Render Pixel Art Character Sprites in Game
 function drawPlayerSprite(ctx, p, isSelf) {
-  const char = CHARACTER_REGISTRY[p.characterId] || {
-    name: p.name,
-    hairColor: '#333',
-    shirtColor: '#fff',
-    pantsColor: '#444',
-    skinTone: '#fcd5b5'
-  };
+  const charData = PIXEL_DATA[p.characterId] || PIXEL_DATA.nika;
+  const grid = charData.grid;
+  const pal = charData.palette;
 
   ctx.save();
-  ctx.translate(p.x, p.y);
+  ctx.translate(Math.round(p.x), Math.round(p.y));
 
-  // If player is hiding, render as subtle translucent silhouette only if self, else don't render!
+  // If player is hiding, faint silhouette only for self
   if (p.isHiding) {
     if (isSelf) {
       ctx.globalAlpha = 0.45;
@@ -121,190 +301,147 @@ function drawPlayerSprite(ctx, p, isSelf) {
       ctx.restore();
       return;
     }
+  } else if (p.isHoldingBreath && (p.inputVx === 0 && p.inputVy === 0) && !p.isCursed && !p.isSpectator) {
+    // Shadow Cloak (A11): slightly translucent while stationary in dark corners
+    ctx.globalAlpha = isSelf ? 0.45 : 0.25;
   }
 
-  // 1. Soul-Flame Curse Aura (if cursed chaser)
-  if (p.isCursed) {
-    const pulse = 1.0 + Math.sin(Date.now() * 0.008) * 0.15;
-    const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, 36 * pulse);
-    grad.addColorStop(0, 'rgba(255, 77, 109, 0.8)');
-    grad.addColorStop(0.5, 'rgba(230, 20, 60, 0.4)');
-    grad.addColorStop(1, 'rgba(150, 0, 30, 0)');
-    ctx.fillStyle = grad;
+  // 1. Neon Floor Ring (Subtle player indicator)
+  if (isSelf) {
+    ctx.strokeStyle = '#00f5d4';
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.arc(0, 0, 36 * pulse, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Swirling ethereal embers
-    for (let i = 0; i < 4; i++) {
-      const emberAngle = (Date.now() * 0.005) + (i * Math.PI / 2);
-      const emberDist = 20 + Math.sin(Date.now() * 0.01 + i) * 6;
-      ctx.fillStyle = '#ffb703';
-      ctx.beginPath();
-      ctx.arc(Math.cos(emberAngle) * emberDist, Math.sin(emberAngle) * emberDist, 3, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    ctx.arc(0, 16, 22, 0, Math.PI * 2);
+    ctx.stroke();
   }
 
-  // Rotate to player facing angle
-  ctx.rotate(p.angle);
+  // 2. Chunky Pixel Drop Shadow
+  ctx.fillStyle = p.isCursed ? 'rgba(255, 0, 84, 0.35)' : 'rgba(0, 0, 0, 0.5)';
+  ctx.fillRect(-18, 22, 36, 6);
+  ctx.fillRect(-14, 20, 28, 10);
 
-  // 2. Drop Shadow under character
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-  ctx.beginPath();
-  ctx.ellipse(0, 2, 16, 12, 0, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Walking bounce oscillation
+  // 3. Walking Animation & Direction
   const isMoving = p.inputVx !== 0 || p.inputVy !== 0;
-  const walkBob = isMoving ? Math.sin(Date.now() * 0.015) * 2 : 0;
+  const walkFrame = isMoving ? Math.floor((Date.now() / 140) % 2) : 0;
+  const bobY = isMoving && walkFrame === 1 ? -2 : 0;
 
-  // 3. Hands & Shoulders
-  ctx.fillStyle = char.skinTone;
-  // Left hand
-  ctx.beginPath();
-  ctx.arc(12, -12, 4.5, 0, Math.PI * 2);
-  ctx.fill();
-  // Right hand
-  ctx.beginPath();
-  ctx.arc(12, 12, 4.5, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Nika's Signature Vintage Camera in Hand!
-  if (char.hasCamera) {
-    // Camera body (black/silver retro SLR)
-    ctx.fillStyle = '#222';
-    ctx.fillRect(10, -7, 9, 14);
-    // Silver top plate
-    ctx.fillStyle = '#bbb';
-    ctx.fillRect(10, -7, 3, 14);
-    // Lens
-    ctx.fillStyle = '#111';
-    ctx.beginPath();
-    ctx.arc(16, 0, 3.5, 0, Math.PI * 2);
-    ctx.fill();
-    // Lens reflection glint
-    ctx.fillStyle = '#00f5d4';
-    ctx.beginPath();
-    ctx.arc(16.5, -1, 1, 0, Math.PI * 2);
-    ctx.fill();
+  // Horizontal flip if facing left
+  const isFacingLeft = Math.cos(p.angle) < 0;
+  if (isFacingLeft) {
+    ctx.scale(-1, 1);
   }
 
-  // 4. Torso / Shirt
-  ctx.fillStyle = char.shirtColor;
-  ctx.beginPath();
-  ctx.ellipse(0, 0, 14, 11, 0, 0, Math.PI * 2);
-  ctx.fill();
+  // 4. Draw Character Pixel by Pixel
+  const pixelSize = PIXEL_SCALE;
+  const offsetX = -(grid[0].length * pixelSize) / 2;
+  const offsetY = -(grid.length * pixelSize) / 2 + bobY;
 
-  // Pattern overlays for specific characters
-  if (char.id === 'milan') {
-    // Plaid lines
-    ctx.strokeStyle = '#8d5b4c';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(-6, -8); ctx.lineTo(-6, 8);
-    ctx.moveTo(4, -8); ctx.lineTo(4, 8);
-    ctx.stroke();
-  } else if (char.id === 'kjara') {
-    // Gothic lace sheer pattern
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.fillRect(-6, -4, 12, 8);
-  } else if (char.hasGoldNecklace) {
-    // Ella's gold necklace
-    ctx.strokeStyle = '#ffd700';
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    ctx.arc(5, 0, 5, -Math.PI / 2, Math.PI / 2);
-    ctx.stroke();
-  }
+  for (let r = 0; r < grid.length; r++) {
+    const row = grid[r];
+    for (let c = 0; c < row.length; c++) {
+      const code = row[c];
+      if (code === '.') continue;
 
-  // 5. Head
-  ctx.fillStyle = char.skinTone;
-  ctx.beginPath();
-  ctx.arc(2, 0, 10 + walkBob * 0.2, 0, Math.PI * 2);
-  ctx.fill();
+      let drawR = r;
+      if (isMoving && r >= 13) {
+        if (walkFrame === 1) {
+          if (c < 8) drawR += 1;
+          else drawR -= 1;
+        }
+      }
 
-  // 6. Hair & Unique Accessories
-  ctx.fillStyle = char.hairColor;
-  ctx.beginPath();
-  ctx.arc(-2, 0, 10, -Math.PI * 0.7, Math.PI * 0.7);
-  ctx.fill();
-
-  // Specific hairstyles
-  if (char.id === 'nika' || char.id === 'marina') {
-    // Long wavy hair flowing behind
-    ctx.beginPath();
-    ctx.ellipse(-9, -4, 7, 5, 0, 0, Math.PI * 2);
-    ctx.ellipse(-9, 4, 7, 5, 0, 0, Math.PI * 2);
-    ctx.fill();
-  } else if (char.id === 'milan' || char.id === 'toni') {
-    // Cropped / textured top
-    ctx.beginPath();
-    ctx.arc(0, 0, 8.5, -Math.PI * 0.8, Math.PI * 0.8);
-    ctx.fill();
-  }
-
-  // Bojana's Sunglasses on top of head
-  if (char.hasHeadSunglasses) {
-    ctx.fillStyle = '#111';
-    ctx.fillRect(-2, -7, 4, 5);
-    ctx.fillRect(-2, 2, 4, 5);
-    ctx.strokeStyle = '#444';
-    ctx.strokeRect(-2, -7, 4, 14);
-  }
-
-  // Glasses (Kjara / Toni)
-  if (char.hasGlasses) {
-    ctx.strokeStyle = char.glassesColor || '#d4af37';
-    ctx.lineWidth = 1.2;
-    // Left eye rim
-    ctx.strokeRect(6, -6, 5, 4);
-    // Right eye rim
-    ctx.strokeRect(6, 2, 5, 4);
-    // Bridge
-    ctx.beginPath();
-    ctx.moveTo(7, -2); ctx.lineTo(7, 2);
-    ctx.stroke();
-  }
-
-  // Beard (Milan / Toni)
-  if (char.hasBeard) {
-    ctx.fillStyle = char.hairColor;
-    ctx.beginPath();
-    ctx.arc(8, 0, 4, -Math.PI / 2, Math.PI / 2);
-    ctx.fill();
+      ctx.fillStyle = pal[code] || '#fff';
+      ctx.fillRect(
+        Math.round(offsetX + c * pixelSize),
+        Math.round(offsetY + drawR * pixelSize),
+        Math.ceil(pixelSize),
+        Math.ceil(pixelSize)
+      );
+    }
   }
 
   ctx.restore();
 
-  // 7. Overhead Name & Sanity Badge
+  // 5. THE SOUL FLAME: Floating 8-Bit Pixel Fire Above Cursed Player's Head!
+  if (p.isCursed && !p.isSpectator) {
+    ctx.save();
+    const fireBob = Math.sin(Date.now() * 0.007) * 4;
+    ctx.translate(Math.round(p.x), Math.round(p.y) - 52 + fireBob);
+
+    // Frame selection
+    const frameIndex = Math.floor((Date.now() / 90) % FLAME_FRAMES.length);
+    const flameGrid = FLAME_FRAMES[frameIndex];
+    const flamePixel = 3.2;
+
+    const fOffsetX = -(flameGrid[0].length * flamePixel) / 2;
+    const fOffsetY = -(flameGrid.length * flamePixel) / 2;
+
+    // Glowing flame backdrop aura
+    ctx.fillStyle = 'rgba(255, 0, 84, 0.25)';
+    ctx.beginPath();
+    ctx.arc(0, 0, 20, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw Flame Pixels
+    for (let fr = 0; fr < flameGrid.length; fr++) {
+      const fRow = flameGrid[fr];
+      for (let fc = 0; fc < fRow.length; fc++) {
+        const fCode = fRow[fc];
+        if (fCode === '.') continue;
+
+        ctx.fillStyle = FLAME_PALETTE[fCode] || '#ff0054';
+        ctx.fillRect(
+          Math.round(fOffsetX + fc * flamePixel),
+          Math.round(fOffsetY + fr * flamePixel),
+          Math.ceil(flamePixel),
+          Math.ceil(flamePixel)
+        );
+      }
+    }
+
+    // Drifting rising sparks/embers
+    const sparkTime = Date.now() * 0.005;
+    const spark1Y = -12 - ((sparkTime * 25) % 18);
+    const spark1X = Math.sin(sparkTime * 3) * 8;
+    const spark2Y = -10 - (((sparkTime + 1) * 20) % 16);
+    const spark2X = -Math.cos(sparkTime * 2.5) * 7;
+
+    ctx.fillStyle = '#ffff3f';
+    ctx.fillRect(Math.round(spark1X), Math.round(spark1Y), 3, 3);
+    ctx.fillStyle = '#ff7b00';
+    ctx.fillRect(Math.round(spark2X), Math.round(spark2Y), 3, 3);
+
+    ctx.restore();
+  }
+
+  // 6. Minimalist Overhead Name & Sanity
+  // Clean, subtle retro font - no clutter boxes
   ctx.save();
-  ctx.translate(p.x, p.y - 28);
+  ctx.translate(Math.round(p.x), Math.round(p.y) + (p.isCursed ? 32 : -36));
   ctx.textAlign = 'center';
 
-  // Nametag Background
-  const displayName = char.name + (p.isCursed ? ' 🔥' : '');
-  ctx.font = 'bold 11px Inter, sans-serif';
-  const textWidth = ctx.measureText(displayName).width;
+  if (!p.isCursed) {
+    ctx.font = 'bold 10px monospace';
+    ctx.fillStyle = isSelf ? '#00f5d4' : 'rgba(255, 255, 255, 0.85)';
+    ctx.fillText(charData.name, 0, 0);
+  }
 
-  ctx.fillStyle = p.isCursed ? 'rgba(180, 20, 40, 0.85)' : 'rgba(15, 15, 22, 0.75)';
-  ctx.beginPath();
-  ctx.roundRect(-textWidth / 2 - 6, -10, textWidth + 12, 16, 4);
-  ctx.fill();
-
-  ctx.fillStyle = isSelf ? '#ffd166' : '#ffffff';
-  ctx.fillText(displayName, 0, 2);
-
-  // Sanity Mini-Bar if damaged
+  // Sanity Health Bar (Only shown if damaged)
   if (p.sanity < 100 && !p.isSpectator) {
-    ctx.fillStyle = '#1a1820';
-    ctx.fillRect(-18, 8, 36, 4);
-    ctx.fillStyle = p.sanity > 40 ? '#38b000' : '#ef233c';
-    ctx.fillRect(-18, 8, (p.sanity / 100) * 36, 4);
+    const barY = p.isCursed ? 8 : 4;
+    ctx.fillStyle = '#0a0a12';
+    ctx.fillRect(-16, barY, 32, 5);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(-16, barY, 32, 5);
+
+    ctx.fillStyle = p.sanity > 40 ? '#00f5d4' : '#ff0054';
+    const fillW = Math.max(0, (p.sanity / 100) * 30);
+    ctx.fillRect(-15, barY + 1, fillW, 3);
   }
 
   ctx.restore();
 }
 
-window.CHARACTER_REGISTRY = CHARACTER_REGISTRY;
+window.CHARACTER_REGISTRY = PIXEL_DATA;
 window.drawPlayerSprite = drawPlayerSprite;

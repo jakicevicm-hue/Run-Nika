@@ -1,70 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <radialGradient id="bojana-bg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#1f2d3d"/>
-      <stop offset="100%" stop-color="#0c131a"/>
-    </radialGradient>
-    <linearGradient id="bojana-skin" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#fee5d3"/>
-      <stop offset="100%" stop-color="#f8cfb2"/>
-    </linearGradient>
-    <linearGradient id="bojana-hair" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#5c3822"/>
-      <stop offset="100%" stop-color="#3b2011"/>
-    </linearGradient>
-  </defs>
-  <!-- Background -->
-  <rect width="200" height="200" rx="20" fill="url(#bojana-bg)"/>
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#3a86ff" stroke-width="2.5" stroke-opacity="0.4"/>
-
-  <!-- Caramel Hair Behind -->
-  <path d="M48 85 C34 125, 40 180, 68 195 L132 195 C160 180, 166 125, 152 85 Z" fill="url(#bojana-hair)"/>
-
-  <!-- White Halter Top -->
-  <path d="M52 195 C56 156, 78 144, 100 144 C122 144, 144 156, 148 195 Z" fill="#ffffff"/>
-  <!-- Halter V-neckline -->
-  <path d="M82 144 L100 162 L118 144" fill="#f0f2f5" stroke="#e0e3e8" stroke-width="2"/>
-
-  <!-- Neck -->
-  <rect x="88" y="116" width="24" height="28" rx="6" fill="url(#bojana-skin)"/>
-
-  <!-- Head -->
-  <ellipse cx="100" cy="94" rx="35" ry="42" fill="url(#bojana-skin)"/>
-
-  <!-- Eyes - Warm and expressive -->
-  <ellipse cx="85" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <ellipse cx="115" cy="89" rx="5" ry="3.5" fill="#2d1c14"/>
-  <circle cx="86.5" cy="87.5" r="1.5" fill="#ffffff"/>
-  <circle cx="116.5" cy="87.5" r="1.5" fill="#ffffff"/>
-
-  <!-- Eyebrows -->
-  <path d="M78 81 Q85 79 92 82" fill="none" stroke="#3b2011" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M108 82 Q115 79 122 81" fill="none" stroke="#3b2011" stroke-width="2.2" stroke-linecap="round"/>
-
-  <!-- Nose -->
-  <path d="M100 92 L97 100 L103 100" fill="none" stroke="#d99f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Friendly Warm Smile -->
-  <path d="M90 112 Q100 120 110 112" fill="none" stroke="#d65a6f" stroke-width="2.8" stroke-linecap="round"/>
-
-  <!-- Soft Cheeks -->
-  <ellipse cx="77" cy="101" rx="8" ry="5" fill="#ff758f" opacity="0.3"/>
-  <ellipse cx="123" cy="101" rx="8" ry="5" fill="#ff758f" opacity="0.3"/>
-
-  <!-- Hair in Front with Waves -->
-  <path d="M58 85 C52 48, 75 38, 100 38 C125 38, 148 48, 142 85 C132 66, 120 60, 100 62 C80 60, 68 66, 58 85 Z" fill="url(#bojana-hair)"/>
-  <path d="M54 85 C50 112, 64 138, 68 152 C60 132, 54 110, 54 85 Z" fill="url(#bojana-hair)"/>
-  <path d="M146 85 C150 112, 136 138, 132 152 C140 132, 146 110, 146 85 Z" fill="url(#bojana-hair)"/>
-
-  <!-- Bojana's Signature Dark Sunglasses Pushed Up on Head! -->
-  <g transform="translate(100, 48)">
-    <!-- Sunglasses Frame -->
-    <rect x="-32" y="-8" width="64" height="15" rx="6" fill="#18181c" stroke="#34343a" stroke-width="1.5"/>
-    <!-- Left Dark Tinted Lens -->
-    <rect x="-26" y="-5" width="22" height="10" rx="3" fill="#08080a"/>
-    <line x1="-24" y1="-2" x2="-8" y2="-2" stroke="#4a4a55" stroke-width="1.2"/>
-    <!-- Right Dark Tinted Lens -->
-    <rect x="4" y="-5" width="22" height="10" rx="3" fill="#08080a"/>
-    <line x1="6" y1="-2" x2="22" y2="-2" stroke="#4a4a55" stroke-width="1.2"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" shape-rendering="crispEdges">
+  <rect width="192" height="192" rx="12" fill="#152433"/>
+  <rect x="2" y="2" width="188" height="188" rx="10" fill="none" stroke="#3a86ff" stroke-width="3" stroke-opacity="0.6"/>
+  <rect x="36" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="48" y="6" width="12" height="12" fill="#383838"/>
+  <rect x="60" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="72" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="96" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="108" y="6" width="12" height="12" fill="#383838"/>
+  <rect x="120" y="6" width="12" height="12" fill="#111111"/>
+  <rect x="36" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="60" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="72" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="84" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="96" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="108" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="120" y="18" width="12" height="12" fill="#5c3a21"/>
+  <rect x="24" y="30" width="12" height="12" fill="#5c3a21"/>
+  <rect x="36" y="30" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="60" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="72" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="84" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="108" y="30" width="12" height="12" fill="#fedac2"/>
+  <rect x="120" y="30" width="12" height="12" fill="#5c3a21"/>
+  <rect x="132" y="30" width="12" height="12" fill="#5c3a21"/>
+  <rect x="24" y="42" width="12" height="12" fill="#5c3a21"/>
+  <rect x="36" y="42" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="42" width="12" height="12" fill="#fedac2"/>
+  <rect x="60" y="42" width="12" height="12" fill="#fedac2"/>
+  <rect x="72" y="42" width="12" height="12" fill="#fedac2"/>
+  <rect x="84" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="108" y="42" width="12" height="12" fill="#111111"/>
+  <rect x="120" y="42" width="12" height="12" fill="#5c3a21"/>
+  <rect x="132" y="42" width="12" height="12" fill="#5c3a21"/>
+  <rect x="24" y="54" width="12" height="12" fill="#5c3a21"/>
+  <rect x="36" y="54" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="60" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="72" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="84" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="108" y="54" width="12" height="12" fill="#fedac2"/>
+  <rect x="120" y="54" width="12" height="12" fill="#5c3a21"/>
+  <rect x="132" y="54" width="12" height="12" fill="#5c3a21"/>
+  <rect x="36" y="66" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="60" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="72" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="84" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="108" y="66" width="12" height="12" fill="#fedac2"/>
+  <rect x="120" y="66" width="12" height="12" fill="#5c3a21"/>
+  <rect x="36" y="78" width="12" height="12" fill="#5c3a21"/>
+  <rect x="48" y="78" width="12" height="12" fill="#5c3a21"/>
+  <rect x="60" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="78" width="12" height="12" fill="#ffffff"/>
+  <rect x="108" y="78" width="12" height="12" fill="#5c3a21"/>
+  <rect x="120" y="78" width="12" height="12" fill="#5c3a21"/>
+  <rect x="24" y="90" width="12" height="12" fill="#5c3a21"/>
+  <rect x="60" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="72" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="84" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="96" y="90" width="12" height="12" fill="#ffffff"/>
+  <rect x="132" y="90" width="12" height="12" fill="#5c3a21"/>
+  <rect x="24" y="102" width="12" height="12" fill="#5c3a21"/>
+  <rect x="60" y="102" width="12" height="12" fill="#fedac2"/>
+  <rect x="72" y="102" width="12" height="12" fill="#fedac2"/>
+  <rect x="84" y="102" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="102" width="12" height="12" fill="#fedac2"/>
+  <rect x="132" y="102" width="12" height="12" fill="#5c3a21"/>
+  <rect x="60" y="114" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="72" y="114" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="84" y="114" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="96" y="114" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="60" y="126" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="72" y="126" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="84" y="126" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="96" y="126" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="60" y="138" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="72" y="138" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="84" y="138" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="96" y="138" width="12" height="12" fill="#7cb9e8"/>
+  <rect x="60" y="150" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="150" width="12" height="12" fill="#fedac2"/>
+  <rect x="60" y="162" width="12" height="12" fill="#fedac2"/>
+  <rect x="96" y="162" width="12" height="12" fill="#fedac2"/>
+  <rect x="48" y="174" width="12" height="12" fill="#d4af37"/>
+  <rect x="60" y="174" width="12" height="12" fill="#d4af37"/>
+  <rect x="96" y="174" width="12" height="12" fill="#d4af37"/>
+  <rect x="108" y="174" width="12" height="12" fill="#d4af37"/>
 </svg>
